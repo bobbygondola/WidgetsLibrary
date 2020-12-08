@@ -1,27 +1,28 @@
-import React, {useState} from 'react'
+import React from 'react';
 import './App.css';
-import Accordion from './components/Accordion'
+// import Accordion from './components/Accordion';
+import Search from './components/Search';
 
-const items = [
-  {
-    title: "What is React?",
-    content: "React is a front-end JavaScript framework."
-  },
-  {
-    title: "Why use React?",
-    content: "React is a favorite front-end JavaScript framework for creating resuable UI components."
-  },
-  {
-    title: "How do you use React?",
-    content: "React is used by creating UI components to complete web applications."
-  }
-]
+// const items = [
+//   {
+//     title: "What is React?",
+//     content: "React is a front-end JavaScript framework."
+//   },
+//   {
+//     title: "Why use React?",
+//     content: "React is a favorite front-end JavaScript framework for creating resuable UI components."
+//   },
+//   {
+//     title: "How do you use React?",
+//     content: "React is used by creating UI components to complete web applications."
+//   }
+// ]
 
 function App() {
-
   return (
     <div className="App">
-      <Accordion items={items}/>
+      <Search />
+      {/* <Accordion items={items}/> */}
     </div>
   );
 }

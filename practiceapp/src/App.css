@@ -5,3 +5,8 @@
   background-color: rgb(39, 37, 37);
   height: 100vh;
 }
+
+.searchComponent{
+  background-color: white;
+  width: 90%;
+}
