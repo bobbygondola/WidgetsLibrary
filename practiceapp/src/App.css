@@ -10,3 +10,14 @@
   background-color: white;
   width: 90%;
 }
+
+.dropDownComponent{
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  width: 90%;
+}
+
+.ui.form{
+  width: 50%;
+}

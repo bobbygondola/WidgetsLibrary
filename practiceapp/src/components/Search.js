@@ -22,15 +22,21 @@ function Search() {
             setResults(data.query.search)
         }
 
-        const timeOutId = setTimeout(() => {
-            if (term){
-                search()
-            }
-        }, 500);
+        // renders results on initial render. (not needed, can take the timeoutID and cleanup return() => {} outside the if else)
+        if (term && !results.length){
+            search()
+        } else {
+            const timeOutId = setTimeout(() => {
+                if (term){
+                    search()
+                }
+            }, 500);
+    
+            return () => {
+                clearTimeout(timeOutId)
+            };
+        }
 
-        return () => {
-            clearTimeout(timeOutId)
-        };
     }, [term])
 
     const renderedResults = results.map((result) => {
