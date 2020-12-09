@@ -1,24 +1,25 @@
 import React, {useState} from 'react';
 import './App.css';
-// import Accordion from './components/Accordion';
-// import Search from './components/Search';
-import Dropdown from './components/Dropdown'
-import Translate from './components/Translate'
+import Accordion from './components/Accordion';
+import Search from './components/Search';
+import Dropdown from './components/Dropdown';
+import Translate from './components/Translate';
+import Route from './components/Route';
 
-// const items = [
-//   {
-//     title: "What is React?",
-//     content: "React is a front-end JavaScript framework."
-//   },
-//   {
-//     title: "Why use React?",
-//     content: "React is a favorite front-end JavaScript framework for creating resuable UI components."
-//   },
-//   {
-//     title: "How do you use React?",
-//     content: "React is used by creating UI components to complete web applications."
-//   }
-// ]
+const items = [
+  {
+    title: "What is React?",
+    content: "React is a front-end JavaScript framework."
+  },
+  {
+    title: "Why use React?",
+    content: "React is a favorite front-end JavaScript framework for creating resuable UI components."
+  },
+  {
+    title: "How do you use React?",
+    content: "React is used by creating UI components to complete web applications."
+  }
+]
 
 const options = [
   {
@@ -40,14 +41,28 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Search /> */}
-      {/* <Accordion items={items}/> */}
-      {/* <Dropdown
-      onSelectedChange={setSelected}
-      selected={selected} 
-      options={options} 
-      />  */}
-      <Translate />
+
+      <Route path="/">
+        <Accordion items={items}/>
+      </Route>
+
+      <Route path="/wiki">
+        <Search />
+      </Route>
+
+      <Route path="/dropdown">
+        <Dropdown 
+          label="Select a Color"
+          options={options}
+          selected={selected}
+          onSelectedChange={setSelected}
+        />
+      </Route>
+
+      <Route path="/translate">
+        <Translate />
+      </Route>
+      
     </div>
   );
 }
