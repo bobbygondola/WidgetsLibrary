@@ -16,6 +16,9 @@
   justify-content: center;
   background-color: white;
   width: 90%;
+  border: 1px solid red;
+  height: fit-content;
+  padding: 5%;
 }
 
 .ui.form{
