@@ -3,6 +3,7 @@ import './App.css';
 // import Accordion from './components/Accordion';
 // import Search from './components/Search';
 import Dropdown from './components/Dropdown'
+import Translate from './components/Translate'
 
 // const items = [
 //   {
@@ -36,21 +37,17 @@ const options = [
 
 function App() {
   const [selected, setSelected] = useState(options[0])
-  const [showDropdown, setShowDropdown] = useState(true)
 
   return (
     <div className="App">
       {/* <Search /> */}
       {/* <Accordion items={items}/> */}
-      <button onClick={() => setShowDropdown(!showDropdown)}>Toggle Dropdown</button>
-      {showDropdown ?
-      <Dropdown
+      {/* <Dropdown
       onSelectedChange={setSelected}
       selected={selected} 
       options={options} 
-      /> : null
-      }
-      
+      />  */}
+      <Translate />
     </div>
   );
 }
