@@ -1,8 +1,23 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import '../App.css';
 
 function Dropdown({ options, selected, onSelectedChange }) {
     const [open, setOpen] = useState(false)
+    const ref = useRef()
+
+    useEffect(() => {
+        const onBodyClick = (event) => {
+            if (ref.current && ref.current.contains(event.target)){
+                return;
+            }
+            setOpen(false)
+        }
+
+        document.body.addEventListener('click', onBodyClick)
+        return () => {
+            document.body.removeEventListener('click', onBodyClick)
+        }
+    }, []); //only runs once
 
     const renderedOptions = options.map((option) => {
         if (option.value === selected.value){
@@ -19,14 +34,16 @@ function Dropdown({ options, selected, onSelectedChange }) {
         )
     })
 
+    console.log("REF.CURRENT", ref.current)
+
     //open dropdown conditionally if clicked. State -> Set classNames below.
     return (
         <div className="dropDownComponent">
-            <div className="ui form">
+            <div ref={ref} className="ui form">
                 <div className="field">
                     <label className="label">Select a color</label>
                     <div
-                    //Event Bubbling invokes all onClicks in parent divs. Toggling the 
+                    //Event Bubbling invokes all onClicks in parent elements. Toggling the 
                     //menu open and closed on select.
                     onClick={() => setOpen(!open)}
                     className={`ui selection dropdown ${open ? 'visible active' : ''}`}
@@ -39,6 +56,7 @@ function Dropdown({ options, selected, onSelectedChange }) {
                     </div>
                 </div>
             </div>
+            <h2 style={{color: `${selected.value}`}}>This text is {selected.label}</h2>
         </div>
     )
 }
