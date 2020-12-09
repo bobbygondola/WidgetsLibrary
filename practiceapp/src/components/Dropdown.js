@@ -56,6 +56,7 @@ function Dropdown({ options, selected, onSelectedChange }) {
                     </div>
                 </div>
             </div>
+            <h2 style={{color: `${selected.value}`}}>This text is {selected.label}</h2>
         </div>
     )
 }
