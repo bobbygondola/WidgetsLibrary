@@ -34,8 +34,6 @@ function Dropdown({ label, options, selected, onSelectedChange }) {
         )
     })
 
-    console.log("REF.CURRENT", ref.current)
-
     //open dropdown conditionally if clicked. State -> Set classNames below.
     return (
         <div className="dropDownComponent">
