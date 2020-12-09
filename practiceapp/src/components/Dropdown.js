@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import '../App.css';
 
 function Dropdown({ options, selected, onSelectedChange }) {
+    const [open, setOpen] = useState(false)
 
     const renderedOptions = options.map((option) => {
         if (option.value === selected.value){
@@ -18,15 +19,21 @@ function Dropdown({ options, selected, onSelectedChange }) {
         )
     })
 
+    //open dropdown conditionally if clicked. State -> Set classNames below.
     return (
         <div className="dropDownComponent">
             <div className="ui form">
                 <div className="field">
                     <label className="label">Select a color</label>
-                    <div className="ui selection dropdown visible active">
+                    <div
+                    //Event Bubbling invokes all onClicks in parent divs. Toggling the 
+                    //menu open and closed on select.
+                    onClick={() => setOpen(!open)}
+                    className={`ui selection dropdown ${open ? 'visible active' : ''}`}
+                    >
                         <i className="dropdown icon"></i>
                         <div className="text">{selected.label}</div>
-                        <div className="menu visible transition">
+                        <div className={`menu ${open ? 'visible transition' : ''}`}>
                             {renderedOptions}
                         </div>
                     </div>

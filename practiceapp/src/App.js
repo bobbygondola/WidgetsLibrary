@@ -41,7 +41,7 @@ function App() {
     <div className="App">
       {/* <Search /> */}
       {/* <Accordion items={items}/> */}
-      <Dropdown 
+      <Dropdown
       onSelectedChange={setSelected}
       selected={selected} 
       options={options} 
