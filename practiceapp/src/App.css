@@ -1,24 +1,3 @@
-.App {
-  text-align: center;
-  background-color: rgb(39, 37, 37);
-  height: 100vh;
-}
-
-.searchComponent{
-  background-color: white;
-  width: 90%;
-}
-
-.dropDownComponent{
-  margin: 0 auto;
-  background-color: white;
-  width: 90%;
-  border: 1px solid red;
-  height: fit-content;
-  padding: 5%;
-}
-
-.ui.form{
-  width: 50%;
-  margin: 0 auto;
+.App{
+    padding: 30px;
 }

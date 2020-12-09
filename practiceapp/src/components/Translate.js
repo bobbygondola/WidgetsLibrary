@@ -80,7 +80,7 @@ function Translate() {
         <div>
             <div className="ui form">
                 <div className="field">
-                    <label style={{color: 'white'}}>Enter Text</label>
+                    <label>Enter Text</label>
                         <input 
                         value={text}
                         onChange={(e) => setText(e.target.value)}/>
